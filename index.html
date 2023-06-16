@@ -22,16 +22,64 @@
   </head>
   <body>
     <div class="container">
+      <div class="row" id="search-form">
         <form>
           <input type="text" placeholder="Enter a city..." />
           <input type="submit" value="Search" />
           <button>My location</button>
         </form>
-        <div class="row">
-            <div class="col-3">
-                <img src="" alt="">
-            </div>
+      </div>
+      <div class="row main">
+        <div class="col-3">
+          <img
+            src="sources/images/weather-icons/01d.png"
+            alt="Weather Stand Cloud"
+            id="main-image"
+            width="100px"
+          />
+          <p id="weather-description">Mostly cloudy</p>
         </div>
+        <div class="col-3">
+          <h1 class="main-city">Berlin</h1>
+          <ul>
+            <li class="date">Friday 12:44</li>
+            <li class="degrees">
+              <span id="celsius-degrees">12</span>°<a
+                href="#"
+                id="celsius-link"
+                class="active link"
+                >C</a
+              >
+              |
+              <a href="#" id="farenheit-link" class="link">F</a>
+            </li>
+            <li class="highest-lowest">
+              H:<span id="highest-temp">16</span>° L:<span id="lowest-temp"
+                >6</span
+              >°
+            </li>
+          </ul>
+        </div>
+        <div class="col-6">
+          <table class="table table-bordered additional-info">
+            <tbody>
+              <tr>
+                <td>Feels like</td>
+                <td>11°</td>
+              </tr>
+              <tr>
+                <td>Humidity</td>
+                <td>76%</td>
+              </tr>
+              <tr>
+                <td>Wind</td>
+                <td>11 km/h</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <a href="#" target="_blank">Open-source code</a> by Anna Yalova
     </div>
   </body>
 </html>
