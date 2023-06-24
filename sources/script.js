@@ -12,6 +12,9 @@ function changeCity(event) {
 
 function showWeather(response) {
   celsiusTemperature = response.data.main.temp;
+  celsiusTempMax = response.data.main.temp_max;
+  celsiusTempMin = response.data.main.temp_min;
+  celsiusFeelsLike = response.data.main.feels_like;
   let tempElement = document.querySelector("#celsius-degrees");
   tempElement.innerHTML = Math.round(response.data.main.temp);
   let tempMax = document.querySelector("#highest-temp");
@@ -29,7 +32,7 @@ function showWeather(response) {
     `sources/images/weather-icons/${response.data.weather[0].icon}.png`
   );
   let feelsLikeElement = document.querySelector("#feels-like");
-  feelsLikeElement.innerHTML = `${Math.round(response.data.main.feels_like)}°`;
+  feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = `${Math.round(response.data.main.humidity)}%`;
   let windSpeed = document.querySelector("#wind-speed");
@@ -50,6 +53,8 @@ function getUserLocation(event) {
 
 function changeUserData(response) {
   celsiusTemperature = response.data.main.temp;
+  celsiusTempMax = response.data.main.temp_max;
+  celsiusTempMin = response.data.main.temp_min;
   let header = document.querySelector(".main-city");
   header.innerHTML = response.data.name;
   const temp = Math.round(response.data.main.temp);
@@ -67,6 +72,15 @@ function showFarenheitTemp(event) {
   let tempElement = document.querySelector("#celsius-degrees");
   let farenheitTemp = (celsiusTemperature * 9) / 5 + 32;
   tempElement.innerHTML = Math.round(farenheitTemp);
+  let maxTempElement = document.querySelector("#highest-temp");
+  let maxFarenheitTemp = (celsiusTempMax * 9) / 5 + 32;
+  maxTempElement.innerHTML = Math.round(maxFarenheitTemp);
+  let minTempElement = document.querySelector("#lowest-temp");
+  let minFarenheitTemp = (celsiusTempMin * 9) / 5 + 32;
+  minTempElement.innerHTML = Math.round(minFarenheitTemp);
+  let feelsLikeElement = document.querySelector("#feels-like");
+  let farenheitFeelsLike = (celsiusFeelsLike * 9) / 5 + 32;
+  feelsLikeElement.innerHTML = Math.round(farenheitFeelsLike);
   celsiusLink.classList.remove("active");
   farenheitLink.classList.add("active");
 }
@@ -75,11 +89,20 @@ function showCelsiusTemp(event) {
   event.preventDefault();
   let tempElement = document.querySelector("#celsius-degrees");
   tempElement.innerHTML = Math.round(celsiusTemperature);
+  let maxTempElement = document.querySelector("#highest-temp");
+  maxTempElement.innerHTML = Math.round(celsiusTempMax);
+  let minTempElement = document.querySelector("#lowest-temp");
+  minTempElement.innerHTML = Math.round(celsiusTempMin);
+  let feelsLikeElement = document.querySelector("#feels-like");
+  feelsLikeElement.innerHTML = Math.round(celsiusFeelsLike);
   celsiusLink.classList.add("active");
   farenheitLink.classList.remove("active");
 }
 
 let celsiusTemperature = null;
+let celsiusTempMax = null;
+let celsiusTempMin = null;
+let celsiusFeelsLike = null;
 
 let city = "Berlin";
 let apiKey = `fda3688b1db05987dd5d07c237aecfba`;
