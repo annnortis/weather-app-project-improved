@@ -23,8 +23,37 @@ li {
   border-radius: 8px;
 }
 
+#search-form {
+  margin: 5px auto;
+  max-width: 97%;
+}
+
+#search-form .city-input {
+  width: 45%;
+  margin-left: 10px;
+}
+
+#search-form .submit-search {
+  margin-left: 5px;
+  width: 25%;
+}
+
+#search-form .location-button {
+  width: 25%;
+  margin-left: 5px;
+  border: 1px solid rgb(118, 118, 118);
+  border-radius: 2px;
+  padding: 3px;
+  transition: all 100ms ease-in-out;
+}
+
+.location-button:hover {
+  cursor: pointer;
+  background: #e5e5e5;
+}
+
 .main-city {
-  margin: 15px 10px 5px 10px;
+  margin: 30px 10px 5px 10px;
   font-family: "Press Start 2P", cursive;
   font-size: 30px;
   font-weight: bolder;
@@ -46,6 +75,8 @@ li {
   font-size: 20px;
   position: relative;
   top: -15px;
+  text-decoration: none;
+  color: #3d4377;
 }
 
 #inbetween {
@@ -60,6 +91,8 @@ li {
   font-size: 20px;
   position: relative;
   top: -15px;
+  text-decoration: none;
+  color: #3d4377;
 }
 
 .highest-lowest {
@@ -72,6 +105,28 @@ li {
 }
 
 #weather-description {
-  margin: 10px 0 10px 55px;
+  margin: 10px 0 10px 70px;
+  font-size: 12px;
+}
+
+.additional-info {
+  background: rgb(227, 184, 191, 0.3);
+  margin: 30px auto;
+  max-width: 400px;
+  height: 100px;
+}
+
+.additional-info td {
+  color: #3d4377;
+  margin: 10px auto;
+  padding: 15px;
   font-size: 15px;
+}
+
+.coder {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 12px;
+  font-weight: lighter;
 }
