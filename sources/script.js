@@ -99,6 +99,36 @@ function showCelsiusTemp(event) {
   farenheitLink.classList.remove("active");
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2" id="forecast-element">
+            <div class="forecast-day">${day}</div>
+            <div class="forecast-image">
+              <img
+                src="sources/images/weather-icons/03d.png"
+                alt="Weather Stand Cloud"
+                id="forecast-image"
+              />
+            </div>
+            <div class="forecast-temps">
+              <span class="forecast-max"
+                ><span id="forecast-max-degrees">27</span>°</span
+              >
+              <span class="forecast-min"
+                ><span id="forecast-min-degrees">17</span>°</span
+              >
+            </div>
+          </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let celsiusTemperature = null;
 let celsiusTempMax = null;
 let celsiusTempMin = null;
@@ -142,3 +172,5 @@ farenheitLink.addEventListener("click", showFarenheitTemp);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemp);
+
+displayForecast();
