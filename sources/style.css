@@ -134,6 +134,30 @@ li {
   width: 200px;
 }
 
+#forecast-element {
+  margin: 20px 8px;
+  text-align: center;
+  background: rgb(227, 184, 191, 0.3);
+  border: 1px solid rgb(255, 255, 255, 0.4);
+  border-radius: 8px;
+  width: 15%;
+  height: 185px;
+}
+
+.forecast-day {
+  font-size: 15px;
+  margin: 10px 10px 5px 10px;
+}
+
+#forecast-image {
+  width: 100px;
+  margin: 0;
+}
+
+.forecast-temps {
+  margin: 10px;
+  font-size: 15px;
+}
 .coder {
   display: block;
   margin: 0 auto;
