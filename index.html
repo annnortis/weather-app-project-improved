@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="sources/style.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="container" id="weather-app">
       <div class="row" id="search-form">
         <form>
           <input type="text" placeholder="Enter a city..." />
@@ -49,8 +49,8 @@
                 id="celsius-link"
                 class="active link"
                 >C</a
-              >
-              |
+              ><span id="inbetween"> | </span>
+
               <a href="#" id="farenheit-link" class="link">F</a>
             </li>
             <li class="highest-lowest">
@@ -79,7 +79,12 @@
           </table>
         </div>
       </div>
-      <a href="#" target="_blank">Open-source code</a> by Anna Yalova
+      <a
+        href="https://github.com/annnortis/weather-app-project-improved"
+        target="_blank"
+        >Open-source code</a
+      >
+      by Anna Yalova
     </div>
   </body>
 </html>

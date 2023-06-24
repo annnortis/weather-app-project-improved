@@ -1,0 +1,67 @@
+body {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/072/791/original/background-sky.jpg?1679336788);
+  background-size: 100%;
+  font-family: "IBM Plex Mono", monospace;
+  color: #3d4377;
+  font-weight: bolder;
+}
+
+ul {
+  padding-left: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+#weather-app {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgb(255, 255, 255, 0.4);
+  border: 1px solid rgb(255, 255, 255, 0.4);
+  border-radius: 8px;
+}
+
+.main-city {
+  margin: 15px 10px 5px 10px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.date {
+  font-size: 15px;
+  padding: 5px 0px;
+}
+
+.degrees {
+  font-family: "Press Start 2P", cursive;
+  font-size: 30px;
+  margin: 5px 0px;
+}
+
+#celsius-link {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 20px;
+  position: relative;
+  top: -15px;
+}
+
+#inbetween {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 20px;
+  position: relative;
+  top: -15px;
+}
+
+#farenheit-link {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 20px;
+  position: relative;
+  top: -15px;
+}
+
+.highest-lowest {
+  font-size: 20px;
+}
