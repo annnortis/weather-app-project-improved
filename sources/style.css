@@ -165,3 +165,7 @@ li {
   font-size: 12px;
   font-weight: lighter;
 }
+
+.forecast-min {
+  opacity: 50%;
+}

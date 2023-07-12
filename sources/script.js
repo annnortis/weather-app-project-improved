@@ -11,10 +11,11 @@ function changeCity(event) {
 }
 
 function getForecast(coordinates) {
-  let apiKey = `3047bdt6b90ao269ed477b1d87cafd2a`;
+  let apiKey = `6e6ec494746b5229a9f2d526478c924c`;
   let lat = coordinates.lat;
   let lon = coordinates.lon;
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -110,34 +111,48 @@ function showCelsiusTemp(event) {
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2" id="forecast-element">
-            <div class="forecast-day">${day}</div>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2" id="forecast-element">
+            <div class="forecast-day">${formatDate(forecastDay.dt)}</div>
             <div class="forecast-image">
               <img
-                src="sources/images/weather-icons/03d.png"
+                src="sources/images/weather-icons/${
+                  forecastDay.weather[0].icon
+                }.png"
                 alt="Weather Stand Cloud"
                 id="forecast-image"
               />
             </div>
             <div class="forecast-temps">
               <span class="forecast-max"
-                ><span id="forecast-max-degrees">27</span>°</span
+                ><span id="forecast-max-degrees">${Math.round(
+                  forecastDay.temp.max
+                )}</span>°</span
               >
               <span class="forecast-min"
-                ><span id="forecast-min-degrees">17</span>°</span
+                ><span id="forecast-min-degrees">${Math.round(
+                  forecastDay.temp.min
+                )}</span>°</span
               >
             </div>
           </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function formatDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
 }
 
 let celsiusTemperature = null;
