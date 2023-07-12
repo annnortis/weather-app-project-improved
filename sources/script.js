@@ -10,6 +10,14 @@ function changeCity(event) {
   axios.get(apiUrl).then(showWeather);
 }
 
+function getForecast(coordinates) {
+  let apiKey = `3047bdt6b90ao269ed477b1d87cafd2a`;
+  let lat = coordinates.lat;
+  let lon = coordinates.lon;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showWeather(response) {
   celsiusTemperature = response.data.main.temp;
   celsiusTempMax = response.data.main.temp_max;
@@ -37,6 +45,8 @@ function showWeather(response) {
   humidityElement.innerHTML = `${Math.round(response.data.main.humidity)}%`;
   let windSpeed = document.querySelector("#wind-speed");
   windSpeed.innerHTML = `${Math.round(response.data.wind.speed * 3.6)} km/h`;
+
+  getForecast(response.data.coord);
 }
 
 function getUserLocation(event) {
@@ -99,7 +109,8 @@ function showCelsiusTemp(event) {
   farenheitLink.classList.remove("active");
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
   let forecastHTML = `<div class="row">`;
